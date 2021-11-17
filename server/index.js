@@ -14,7 +14,7 @@ app.use(cors());
 
 app.use('/posts', postRoutes);
 
-const CONNECTION_URL = 'mongodb://mern:mern123123@cluster0-shard-00-00.f6kwv.mongodb.net:27017,cluster0-shard-00-01.f6kwv.mongodb.net:27017,cluster0-shard-00-02.f6kwv.mongodb.net:27017/myFirstDatabase?ssl=true&replicaSet=atlas-t2jph5-shard-0&authSource=admin&retryWrites=true&w=majority';
+const CONNECTION_URL = 'Add your mongodb connection link';
 const PORT = process.env.PORT|| 5000;
 
 mongoose.connect(CONNECTION_URL, { useNewUrlParser: true, useUnifiedTopology: true })
