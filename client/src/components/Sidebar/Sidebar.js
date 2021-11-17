@@ -1,18 +1,34 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react';
+// import { Router } from 'react-router';
+
+
+import { useDispatch } from 'react-redux';
+import { getPosts } from '../../actions/posts';
+
+import Posts from '../Posts/Posts';
+import Form from '../Form/Form';
 // import '../../App.css';
 
 
 function Sidebar() {
+
+    const [currentId, setCurrentId] = useState(0);
+    const dispatch = useDispatch();
+    // const classes = useStyles();
+  
+    useEffect(() => {
+      dispatch(getPosts());
+    }, [currentId, dispatch]);    
     return (
 
-        <>
+        <div id="wrapper">
 
 
             <div className="topbar">
 
 
                 <div className="topbar-left">
-                    <a href="" className="logo">
+                    <a href="index.html" className="logo">
                         <span>
                             <img src="" alt="" height="18" />
                         </span>
@@ -35,18 +51,18 @@ function Sidebar() {
                         <li className="dropdown notification-list">
                             <div className="dropdown notification-list nav-pro-img">
                                 <a className="dropdown-toggle nav-link arrow-none waves-effect nav-user" data-toggle="dropdown"
-                                    href="#" role="button" aria-haspopup="false" aria-expanded="false">
+                                    href="index.html" role="button" aria-haspopup="false" aria-expanded="false">
                                     <img src="assets/images/users/user-4.jpg" alt="user" className="rounded-circle" />
                                 </a>
                                 <div className="dropdown-menu dropdown-menu-right profile-dropdown ">
 
-                                    <a className="dropdown-item" href="#"><i className="mdi mdi-account-circle"></i>
+                                    <a className="dropdown-item" href="index.html"><i className="mdi mdi-account-circle"></i>
                                         Profile</a>
                                     <a className="dropdown-item" href="exercise.html"><i className="mdi mdi-bike"></i> Exercise</a>
-                                    <a className="dropdown-item d-block" href="#"><i className="mdi mdi-settings"></i>
+                                    <a className="dropdown-item d-block" href="index.html"><i className="mdi mdi-settings"></i>
                                         Settings</a>
                                     <div className="dropdown-divider"></div>
-                                    <a className="dropdown-item text-danger" href="#"><i className="mdi mdi-power text-danger"></i>
+                                    <a className="dropdown-item text-danger" href="index.html"><i className="mdi mdi-power text-danger"></i>
                                         Logout</a>
                                 </div>
                             </div>
@@ -90,11 +106,11 @@ function Sidebar() {
                             </li>
 
                             <li>
-                                <a href="#" className="waves-effect"><i className="mdi mdi-account-circle"></i><span>
+                                <a href="index.html" className="waves-effect"><i className="mdi mdi-account-circle"></i><span>
                                     Profile </span></a>
                             </li>
                             <li>
-                                <a href="" className="waves-effect"><i className="mdi mdi-settings"></i><span>
+                                <a href="index.html" className="waves-effect"><i className="mdi mdi-settings"></i><span>
                                     Settings </span></a>
                             </li>
 
@@ -188,14 +204,17 @@ function Sidebar() {
                             </div>
                         </div>
 
-                     
+
                     </div>
 
-
+                    <Posts setCurrentId={setCurrentId} />
+                    <Form currentId={currentId} setCurrentId={setCurrentId} />
                 </div>
 
             </div>
-        </>
+
+            
+        </div>
 
     )
 }

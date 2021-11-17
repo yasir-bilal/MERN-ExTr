@@ -1,18 +1,19 @@
 import React from 'react';
-import { Grid, CircularProgress } from '@material-ui/core';
+
 import { useSelector } from 'react-redux';
 
 import Post from './Post/Post';
-import useStyles from './styles';
+
 
 const Posts = ({ setCurrentId }) => {
   const posts = useSelector((state) => state.posts);
-  const classes = useStyles();
+ 
 
 
   return (
    
-      <>
+      <> 
+      
         <div className="row">
 
           <div className="col-lg-12">
@@ -48,20 +49,22 @@ const Posts = ({ setCurrentId }) => {
 
 
         <div class="table-responsive">
+        <ul>
           <table class="table table-striped mb-0">
             <tr>
-              <th> Activity Type</th>
-              <th> Date </th>
-              <th> Sets</th>
-              <th> Duration (min) </th>
-              <th> Description </th>
-              <th> Set Counter <i class="mdi mdi-alarm-off"></i> </th>
-              <th> Delete</th>
-              <th> Edit  <i class="mdi mdi-pencil"></i> </th>
+              <th style={{width: "12%", overflow: "hidden", textAlign: "center", content:"center"}}> Activity Type</th>
+              <th style={{width: "12%", overflow: "hidden", textAlign: "center"}}> Date </th>
+              <th style={{width: "12%", overflow: "hidden", textAlign: "center"}}> Sets</th>
+              <th style={{width: "12%", overflow: "hidden", textAlign: "center"}}> Duration (min) </th>
+              <th style={{width: "12%", overflow: "hidden", textAlign: "center"}}> Description </th>
+              <th style={{width: "12%", overflow: "hidden", textAlign: "center"}}> Set Counter <i class="mdi mdi-alarm-off"></i> </th>
+              <th style={{width: "12%", overflow: "hidden", textAlign: "center"}}> Delete</th>
+              <th style={{width: "12%", overflow: "hidden", textAlign: "center"}}> Edit  <i class="mdi mdi-pencil"></i> </th>
 
             </tr>
 
           </table>
+          </ul>
          
           {posts.map((post) => (
             <ul>
@@ -69,6 +72,7 @@ const Posts = ({ setCurrentId }) => {
             </ul>
           ))}
         </div>
+        
       </>
     
   );
